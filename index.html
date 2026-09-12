@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="css/main.css?v=46" />
   <link rel="stylesheet" href="css/animations.css?v=10" />
   <link rel="stylesheet" href="css/pages.css?v=52" />
-  <link rel="stylesheet" href="css/homepage.css?v=46" />
+  <link rel="stylesheet" href="css/homepage.css?v=58" />
 </head>
 <body class="page-home">
   <div class="cursor" id="cursor" aria-hidden="true">
@@ -39,15 +39,48 @@
          ============================================ -->
     <section class="voir-hero" id="purpose" aria-label="VOIR See it. Love it. Live it.">
       <div class="voir-hero__media" aria-hidden="true">
-        <img
-          class="voir-hero__bg"
-          src="images/hero-living-room.jpg"
-          alt=""
-          width="1920"
-          height="1080"
-          decoding="async"
-          fetchpriority="high"
-        />
+        <div class="voir-hero__slides">
+          <div class="voir-hero__slide is-active">
+            <img
+              src="images/hero-living-room-01.jpg"
+              alt=""
+              width="3840"
+              height="2160"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </div>
+          <div class="voir-hero__slide">
+            <img
+              src="images/hero-living-room-02.jpg"
+              alt=""
+              width="3840"
+              height="2160"
+              decoding="async"
+              loading="lazy"
+            />
+          </div>
+          <div class="voir-hero__slide">
+            <img
+              src="images/hero-living-room-03.jpg"
+              alt=""
+              width="3840"
+              height="2160"
+              decoding="async"
+              loading="lazy"
+            />
+          </div>
+          <div class="voir-hero__slide">
+            <img
+              src="images/hero-living-room-04.jpg"
+              alt=""
+              width="3840"
+              height="2160"
+              decoding="async"
+              loading="lazy"
+            />
+          </div>
+        </div>
         <div class="voir-hero__wash"></div>
       </div>
 
@@ -60,15 +93,6 @@
             <span>LIVE IT.</span>
           </h1>
           <p class="voir-hero__sub">More than a TV. A more vivid way to live.</p>
-          <a href="#hero" class="voir-hero__cta" data-cursor="Explore">
-            <span class="voir-hero__play" aria-hidden="true">
-              <svg viewBox="0 0 48 48" width="44" height="44" fill="none">
-                <circle cx="24" cy="24" r="22.5" stroke="currentColor" stroke-width="1.15" />
-                <path d="M19.5 15.8v16.4L34.2 24 19.5 15.8z" fill="currentColor" />
-              </svg>
-            </span>
-            <span class="voir-hero__cta-label">EXPLORE THE EXPERIENCE</span>
-          </a>
         </div>
 
         <aside class="voir-hero__rail" aria-hidden="true">
@@ -82,21 +106,6 @@
       </div>
 
       <div class="voir-hero__bottom">
-        <div class="voir-hero__progress" aria-hidden="true">
-          <button type="button" class="voir-hero__progress-play" aria-label="Play">
-            <svg viewBox="0 0 12 12" width="10" height="10" fill="currentColor" aria-hidden="true">
-              <path d="M3 1.5v9l8-4.5-8-4.5z" />
-            </svg>
-          </button>
-          <div class="voir-hero__progress-track">
-            <span class="voir-hero__progress-fill"></span>
-            <span class="voir-hero__progress-knob"></span>
-          </div>
-          <span class="voir-hero__progress-time">01</span>
-          <span class="voir-hero__progress-sep"></span>
-          <span class="voir-hero__progress-time">03</span>
-        </div>
-
         <a href="#hero" class="voir-hero__scroll" aria-label="Scroll to next section">
           <span class="voir-hero__scroll-icon" aria-hidden="true"></span>
           <span class="voir-hero__scroll-label">SCROLL</span>
@@ -105,20 +114,24 @@
     </section>
 
     <!-- ============================================
-         SECTION 2 — OUR BELIEF (cinematic editorial)
+         SECTION 2 — BELIEF (full-bleed cinematic video)
          ============================================ -->
     <section class="belief" id="hero" aria-label="VOIR Our Belief">
       <div class="belief__media" aria-hidden="true">
-        <img
-          class="belief__bg"
-          src="images/belief-landscape.jpg"
-          alt=""
-          width="1920"
-          height="1080"
-          loading="lazy"
-          decoding="async"
-        />
-        <div class="belief__wash"></div>
+        <video
+          class="belief__video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          poster="images/belief-video-poster.jpg"
+          aria-label="Cinematic VOIR technology video"
+        >
+          <source src="vie.mp4" type="video/mp4" />
+        </video>
+        <div class="belief__overlay" aria-hidden="true"></div>
+        <div class="belief__vignette" aria-hidden="true"></div>
       </div>
 
       <div class="belief__stage">
@@ -169,48 +182,23 @@
             </p>
           </div>
 
-          <ul class="story__pillars" role="list">
-            <li class="story__pillar">
-              <span class="story__pillar-icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
-                  <circle cx="16" cy="16" r="5.5" />
-                  <path d="M16 3.5v3.2M16 25.3v3.2M3.5 16h3.2M25.3 16h3.2M7.4 7.4l2.3 2.3M22.3 22.3l2.3 2.3M7.4 24.6l2.3-2.3M22.3 9.7l2.3-2.3" />
-                </svg>
-              </span>
-              <h3 class="story__pillar-title">ENGINEERED<br />FOR REAL LIFE.</h3>
-              <p class="story__pillar-text">Made for how you<br />watch, every day.</p>
-            </li>
-            <li class="story__pillar">
-              <span class="story__pillar-icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
-                  <rect x="6" y="8" width="20" height="14" rx="1.5" />
-                  <path d="M12 26h8M16 22v4" />
-                </svg>
-              </span>
-              <h3 class="story__pillar-title">DESIGNED AROUND<br />THE EXPERIENCE.</h3>
-              <p class="story__pillar-text">Technology that<br />enhances, not distracts.</p>
-            </li>
-            <li class="story__pillar">
-              <span class="story__pillar-icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
-                  <path d="M8 22V10l8-5 8 5v12l-8 5-8-5z" />
-                  <path d="M16 12v8M12 16h8" />
-                </svg>
-              </span>
-              <h3 class="story__pillar-title">TECHNOLOGY<br />WITHOUT THE COMPLEXITY.</h3>
-              <p class="story__pillar-text">Smart features, simply<br />made for you.</p>
-            </li>
-            <li class="story__pillar">
-              <span class="story__pillar-icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
-                  <circle cx="16" cy="11" r="4" />
-                  <path d="M7 26c1.8-5 5-7.5 9-7.5s7.2 2.5 9 7.5" />
-                </svg>
-              </span>
-              <h3 class="story__pillar-title">QUALITY<br />YOU CAN LIVE WITH.</h3>
-              <p class="story__pillar-text">Reliability, performance<br />and peace of mind.</p>
-            </li>
-          </ul>
+          <div class="story__pillars-block">
+            <div class="story__processor" aria-hidden="false">
+              <video
+                id="storyProcessorVideo"
+                class="story__media-video story__processor-video"
+                muted
+                loop
+                playsinline
+                autoplay
+                preload="metadata"
+                aria-label="VOIR AI processor visualisation"
+              >
+                <source src="processor.mp4" type="video/mp4" />
+              </video>
+              <div class="story__processor-fade" aria-hidden="true"></div>
+            </div>
+          </div>
         </div>
 
         <!-- BOTTOM: Technology story + videos -->
@@ -231,32 +219,19 @@
 
           <div class="story__visual" aria-hidden="false">
             <div class="story__visual-stage">
-              <div class="story__visual-split">
-                <video
-                  id="storyAiVideo"
-                  class="story__media-video"
-                  muted
-                  loop
-                  playsinline
-                  autoplay
-                  preload="auto"
-                  aria-label="VOIR intelligent viewing experience"
-                >
-                  <source src="videos/dog-view.mp4" type="video/mp4" />
-                </video>
-                <video
-                  id="storyProcessorVideo"
-                  class="story__media-video"
-                  muted
-                  loop
-                  playsinline
-                  autoplay
-                  preload="auto"
-                  aria-label="VOIR AI processor visualisation"
-                >
-                  <source src="processor.mp4" type="video/mp4" />
-                </video>
-              </div>
+              <video
+                id="heroVideo"
+                class="story__media-video hero-cinematic__video"
+                muted
+                loop
+                playsinline
+                autoplay
+                preload="auto"
+                poster="images/tv-hero.jpg"
+                aria-label="VOIR cinematic television experience"
+              >
+                <source src="vidio%20hero.mp4" type="video/mp4" />
+              </video>
               <div class="story__visual-fade" aria-hidden="true"></div>
             </div>
 
@@ -274,101 +249,7 @@
 
 
     <!-- ============================================
-         SECTION 3 — TECHNOLOGY / STATS (light)
-         ============================================ -->
-    <section class="tech-showcase" id="technology" aria-label="VOIR Experiences">
-      <div class="tech-showcase__bg" aria-hidden="true"></div>
-
-      <div class="tech-showcase__inner">
-        <div class="tech-showcase__header">
-          <div class="tech-showcase__intro">
-            <p class="tech-showcase__eyebrow">EXPERIENCES THAT MATTER</p>
-            <h2 class="tech-showcase__title">WHEN TECHNOLOGY DISAPPEARS,<br />EXPERIENCE BEGINS.</h2>
-          </div>
-          <p class="tech-showcase__aside">
-            Because the best technology isn't what you notice.<br />
-            It's what you feel.
-          </p>
-        </div>
-
-        <div class="tech-showcase__track" id="techExperienceTrack" role="list">
-          <article class="tech-showcase__card" role="listitem" tabindex="0">
-            <img class="tech-showcase__img" src="images/exp-cinema.jpg" alt="Astronaut cinematic scene on a VOIR television" loading="lazy" decoding="async" />
-            <div class="tech-showcase__shade" aria-hidden="true"></div>
-            <div class="tech-showcase__label">
-              <h3 class="tech-showcase__name">CINEMA</h3>
-              <p class="tech-showcase__desc">Bigger stories. Deeper emotions.</p>
-            </div>
-          </article>
-
-          <article class="tech-showcase__card" role="listitem" tabindex="0">
-            <img class="tech-showcase__img" src="images/exp-sports.jpg" alt="Stadium cricket action for sports viewing" loading="lazy" decoding="async" />
-            <div class="tech-showcase__shade" aria-hidden="true"></div>
-            <div class="tech-showcase__label">
-              <h3 class="tech-showcase__name">SPORTS</h3>
-              <p class="tech-showcase__desc">Every moment comes alive.</p>
-            </div>
-          </article>
-
-          <article class="tech-showcase__card" role="listitem" tabindex="0">
-            <img class="tech-showcase__img" src="images/exp-gaming.jpg" alt="Neon racing scene for immersive gaming" loading="lazy" decoding="async" />
-            <div class="tech-showcase__shade" aria-hidden="true"></div>
-            <div class="tech-showcase__label">
-              <h3 class="tech-showcase__name">GAMING</h3>
-              <p class="tech-showcase__desc">Enter another world.</p>
-            </div>
-          </article>
-
-          <article class="tech-showcase__card" role="listitem" tabindex="0">
-            <img class="tech-showcase__img" src="images/exp-music.jpg" alt="Musician performing acoustic guitar" loading="lazy" decoding="async" />
-            <div class="tech-showcase__shade" aria-hidden="true"></div>
-            <div class="tech-showcase__label">
-              <h3 class="tech-showcase__name">MUSIC</h3>
-              <p class="tech-showcase__desc">Feel the sound.</p>
-            </div>
-          </article>
-
-          <article class="tech-showcase__card" role="listitem" tabindex="0">
-            <img class="tech-showcase__img" src="images/exp-family.jpg" alt="Family watching television together" loading="lazy" decoding="async" />
-            <div class="tech-showcase__shade" aria-hidden="true"></div>
-            <div class="tech-showcase__label">
-              <h3 class="tech-showcase__name">FAMILY</h3>
-              <p class="tech-showcase__desc">The moments that stay with you.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================
-         FEATURE LAB — The future of colour
-         ============================================ -->
-    <section class="feature-lab" id="features" aria-label="The future of colour">
-      <div class="feature-lab__content">
-        <h2 class="feature-lab__title">The future of colour</h2>
-        <p class="feature-lab__description">
-          Our most authentic colour ever. Unleash the full spectrum of cinematic
-          experience. VOIR's QLED delivers remarkably pure, true-to-life colour
-          with independently controlled three-colour RGB LED — improving
-          every story, even in the darkest scenes.
-        </p>
-        <div class="feature-lab__image-wrapper">
-          <img
-            class="feature-lab__image"
-            src="images/future-of-colour.jpg"
-            alt="VOIR cinematic colour experience by the ocean"
-            width="1200"
-            height="675"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================
-         SECTION 4 — COLLECTIONS
+         SECTION 4 — TV SERIES / COLLECTIONS
          ============================================ -->
     <section class="tv-series" id="tv-series" aria-label="VOIR TV Range">
       <div class="tv-series__inner">
@@ -376,17 +257,6 @@
           <div class="tv-series__intro">
             <p class="tv-series__eyebrow">OUR TV RANGE</p>
             <h2 class="tv-series__title">THREE WORLDS.<br />ONE VISION.</h2>
-          </div>
-          <div class="tv-series__meta">
-            <p class="tv-series__aside">Different needs. Different lifestyles.<br />A brighter you.</p>
-            <div class="tv-series__controls" role="group" aria-label="Series carousel">
-              <button type="button" class="tv-series__nav-btn" id="tvSeriesPrev" aria-label="Previous series">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" aria-hidden="true"><path d="M14.5 6.5L9 12l5.5 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-              <button type="button" class="tv-series__nav-btn" id="tvSeriesNext" aria-label="Next series">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" aria-hidden="true"><path d="M9.5 6.5L15 12l-5.5 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-            </div>
           </div>
         </div>
 
@@ -407,10 +277,6 @@
                   <span>Android TV</span>
                 </p>
               </div>
-              <div class="tv-series__bottom">
-                <p class="tv-series__blurb">Reliable. Feature packed.<br />All the entertainment you love.</p>
-                <a href="tvs.html#core" class="tv-series__link" data-cursor="Explore">EXPLORE CORE <span aria-hidden="true">→</span></a>
-              </div>
             </div>
           </article>
 
@@ -430,10 +296,6 @@
                   <span>Google TV</span>
                 </p>
               </div>
-              <div class="tv-series__bottom">
-                <p class="tv-series__blurb">More performance.<br />More possibilities.<br />A richer experience.</p>
-                <a href="tvs.html#zenith" class="tv-series__link" data-cursor="Explore">EXPLORE ZENITH <span aria-hidden="true">→</span></a>
-              </div>
             </div>
           </article>
 
@@ -451,10 +313,6 @@
                   <span>AI-Powered Google TV</span>
                 </p>
               </div>
-              <div class="tv-series__bottom">
-                <p class="tv-series__blurb">Smarter. More personal.<br />Truly next-gen.</p>
-                <span class="tv-series__soon-label">COMING SOON</span>
-              </div>
             </div>
           </article>
         </div>
@@ -463,7 +321,141 @@
 
 
     <!-- ============================================
-         SECTION 5 — OUR PROMISE
+         SECTION 5 — TECHNOLOGY / STATS (light)
+         ============================================ -->
+    <section class="tech-showcase" id="technology" aria-label="VOIR Experiences">
+      <div class="tech-showcase__bg" aria-hidden="true"></div>
+
+      <div class="tech-showcase__inner">
+        <div class="tech-showcase__header">
+          <div class="tech-showcase__intro">
+            <p class="tech-showcase__eyebrow">EXPERIENCES THAT MATTER</p>
+            <h2 class="tech-showcase__title">WHEN TECHNOLOGY DISAPPEARS,<br />EXPERIENCE BEGINS.</h2>
+          </div>
+          <p class="tech-showcase__aside">
+            Because the best technology isn't what you notice.<br />
+            It's what you feel.
+          </p>
+        </div>
+
+        <div class="tech-showcase__track" id="techExperienceTrack" role="list">
+          <article class="tech-showcase__card" role="listitem" tabindex="0" data-depth="2">
+            <div class="tech-showcase__card-inner">
+              <div class="tech-showcase__media">
+                <img class="tech-showcase__img" src="images/exp-cinema.jpg" alt="Astronaut cinematic scene on a VOIR television" loading="lazy" decoding="async" />
+              </div>
+              <div class="tech-showcase__glass" aria-hidden="true"></div>
+              <div class="tech-showcase__shade" aria-hidden="true"></div>
+              <div class="tech-showcase__shine" aria-hidden="true"></div>
+              <div class="tech-showcase__label">
+                <h3 class="tech-showcase__name">CINEMA</h3>
+                <p class="tech-showcase__desc">Bigger stories. Deeper emotions.</p>
+              </div>
+            </div>
+            <span class="tech-showcase__glow" aria-hidden="true"></span>
+          </article>
+
+          <article class="tech-showcase__card" role="listitem" tabindex="0" data-depth="1">
+            <div class="tech-showcase__card-inner">
+              <div class="tech-showcase__media">
+                <img class="tech-showcase__img" src="images/exp-sports.jpg" alt="Stadium cricket action for sports viewing" loading="lazy" decoding="async" />
+              </div>
+              <div class="tech-showcase__glass" aria-hidden="true"></div>
+              <div class="tech-showcase__shade" aria-hidden="true"></div>
+              <div class="tech-showcase__shine" aria-hidden="true"></div>
+              <div class="tech-showcase__label">
+                <h3 class="tech-showcase__name">SPORTS</h3>
+                <p class="tech-showcase__desc">Every moment comes alive.</p>
+              </div>
+            </div>
+            <span class="tech-showcase__glow" aria-hidden="true"></span>
+          </article>
+
+          <article class="tech-showcase__card" role="listitem" tabindex="0" data-depth="3">
+            <div class="tech-showcase__card-inner">
+              <div class="tech-showcase__media">
+                <img class="tech-showcase__img" src="images/exp-gaming.jpg" alt="Neon racing scene for immersive gaming" loading="lazy" decoding="async" />
+              </div>
+              <div class="tech-showcase__glass" aria-hidden="true"></div>
+              <div class="tech-showcase__shade" aria-hidden="true"></div>
+              <div class="tech-showcase__shine" aria-hidden="true"></div>
+              <div class="tech-showcase__label">
+                <h3 class="tech-showcase__name">GAMING</h3>
+                <p class="tech-showcase__desc">Enter another world.</p>
+              </div>
+            </div>
+            <span class="tech-showcase__glow" aria-hidden="true"></span>
+          </article>
+
+          <article class="tech-showcase__card" role="listitem" tabindex="0" data-depth="0">
+            <div class="tech-showcase__card-inner">
+              <div class="tech-showcase__media">
+                <img class="tech-showcase__img" src="images/exp-music.jpg" alt="Musician performing acoustic guitar" loading="lazy" decoding="async" />
+              </div>
+              <div class="tech-showcase__glass" aria-hidden="true"></div>
+              <div class="tech-showcase__shade" aria-hidden="true"></div>
+              <div class="tech-showcase__shine" aria-hidden="true"></div>
+              <div class="tech-showcase__label">
+                <h3 class="tech-showcase__name">MUSIC</h3>
+                <p class="tech-showcase__desc">Feel the sound.</p>
+              </div>
+            </div>
+            <span class="tech-showcase__glow" aria-hidden="true"></span>
+          </article>
+
+          <article class="tech-showcase__card" role="listitem" tabindex="0" data-depth="2">
+            <div class="tech-showcase__card-inner">
+              <div class="tech-showcase__media">
+                <img class="tech-showcase__img" src="images/exp-family.jpg" alt="Family watching television together" loading="lazy" decoding="async" />
+              </div>
+              <div class="tech-showcase__glass" aria-hidden="true"></div>
+              <div class="tech-showcase__shade" aria-hidden="true"></div>
+              <div class="tech-showcase__shine" aria-hidden="true"></div>
+              <div class="tech-showcase__label">
+                <h3 class="tech-showcase__name">FAMILY</h3>
+                <p class="tech-showcase__desc">The moments that stay with you.</p>
+              </div>
+            </div>
+            <span class="tech-showcase__glow" aria-hidden="true"></span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         FEATURE LAB — The future of colour
+         ============================================ -->
+    <section class="feature-lab" id="features" aria-label="The future of colour">
+      <div class="feature-lab__content">
+        <h2 class="feature-lab__title">The future of colour</h2>
+        <p class="feature-lab__description">
+          Our most authentic colour ever. Unleash the full spectrum of cinematic
+          experience. VOIR's QLED delivers remarkably pure, true-to-life colour
+          with independently controlled three-colour RGB LED — improving
+          every story, even in the darkest scenes.
+        </p>
+        <div class="feature-lab__image-wrapper">
+          <video
+            class="feature-lab__image"
+            muted
+            loop
+            playsinline
+            autoplay
+            preload="metadata"
+            poster="images/future-of-colour.jpg"
+            aria-label="VOIR cinematic colour experience"
+          >
+            <source src="nnv.mp4" type="video/mp4" />
+          </video>
+          <div class="feature-lab__overlay" aria-hidden="true"></div>
+          <div class="feature-lab__vignette" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================
+         SECTION 6 — OUR PROMISE
          ============================================ -->
     <section class="promise-v2" id="promise" aria-label="Our Promise">
       <div class="promise-v2__inner">
@@ -585,10 +577,10 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
-  <script src="js/data.js?v=12"></script>
-  <script src="js/chrome.js?v=18"></script>
+  <script src="js/data.js?v=13"></script>
+  <script src="js/chrome.js?v=19"></script>
   <script src="js/cursor.js?v=3"></script>
   <script src="js/app.js?v=41"></script>
-  <script src="js/homepage.js?v=28"></script>
+  <script src="js/homepage.js?v=37"></script>
 </body>
 </html>

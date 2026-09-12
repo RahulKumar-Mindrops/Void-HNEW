@@ -16,25 +16,13 @@
       { href: "index.html", label: "Home", id: "home" },
       { href: "tvs.html", label: "Product", id: "tvs" },
       { href: "innovation.html", label: "Innovation", id: "innovation" },
-      { href: "about.html", label: "About", id: "about" },
       { href: "support.html", label: "Support", id: "support" },
       { href: "contact.html", label: "Contact Us", id: "contact" },
     ];
-    const homeHeroNav = [
-      { href: "tvs.html", label: "TVs", id: "tvs" },
-      { href: "#hero", label: "The Experience", id: "experience" },
-      { href: "#technology", label: "Technology", id: "technology" },
-      { href: "about.html", label: "Our Story", id: "about" },
-      { href: "#story", label: "Why VOIR", id: "why" },
-      { href: "support.html", label: "Support", id: "support" },
-      { href: "tvs.html", label: "Where to Buy", id: "buy" },
-    ];
     const links =
-      active === "home"
-        ? homeHeroNav
-        : window.VOIR && window.VOIR.nav && window.VOIR.nav.length
-          ? window.VOIR.nav
-          : fallbackNav;
+      window.VOIR && window.VOIR.nav && window.VOIR.nav.length
+        ? window.VOIR.nav
+        : fallbackNav;
     const items = links
       .map(function (l) {
         const isActive = l.id === active;

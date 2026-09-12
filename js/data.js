@@ -31,7 +31,6 @@ window.VOIR = {
     { href: "index.html", label: "Home", id: "home" },
     { href: "tvs.html", label: "Product", id: "tvs" },
     { href: "innovation.html", label: "Innovation", id: "innovation" },
-    { href: "about.html", label: "About", id: "about" },
     { href: "support.html", label: "Support", id: "support" },
     { href: "contact.html", label: "Contact Us", id: "contact" },
   ],
