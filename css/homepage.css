@@ -263,6 +263,20 @@ body.page-home .nav.nav--hero.is-menu-open .nav__toggle span {
   body.page-home .nav.nav--hero .nav__links {
     display: none !important;
   }
+
+  /* Logo left, search + menu flush to the top-right corner */
+  body.page-home .nav.nav--hero .nav__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 24px);
+    gap: 12px;
+  }
+
+  body.page-home .nav.nav--hero .nav__actions {
+    margin-left: auto;
+    gap: 8px;
+  }
 }
 
 /* ---------- Homepage Buttons Override ---------- */
