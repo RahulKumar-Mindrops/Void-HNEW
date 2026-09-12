@@ -67,8 +67,7 @@
           '<path d="M16.2 16.2L20 20" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>' +
           "</svg></button>"
         : "";
-    const toggleSpans =
-      active === "home" ? "<span></span><span></span>" : "<span></span><span></span><span></span>";
+    const toggleSpans = "<span></span><span></span><span></span>";
 
     return (
       '<header class="nav' +

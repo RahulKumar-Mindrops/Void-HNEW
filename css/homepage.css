@@ -165,25 +165,31 @@ body.page-home .nav.nav--hero .nav__search:hover {
 
 body.page-home .nav.nav--hero .nav__toggle {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 34px;
   height: 34px;
-  gap: 7px;
+  gap: 5px;
   padding: 8px 4px;
 }
 
 body.page-home .nav.nav--hero .nav__toggle span {
   background: #fff;
   height: 1.5px;
+  width: 100%;
   border-radius: 1px;
 }
 
 body.page-home .nav.nav--hero .nav__toggle.is-open span:nth-child(1) {
-  transform: translateY(4.25px) rotate(45deg);
+  transform: translateY(6.5px) rotate(45deg);
 }
 
 body.page-home .nav.nav--hero .nav__toggle.is-open span:nth-child(2) {
-  transform: translateY(-4.25px) rotate(-45deg);
-  opacity: 1;
+  opacity: 0;
+}
+
+body.page-home .nav.nav--hero .nav__toggle.is-open span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
 }
 
 body.page-home .nav-drawer {
