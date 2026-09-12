@@ -1883,20 +1883,22 @@ body.page-home .section__eyebrow {
   margin: 0;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-family: "Outfit", sans-serif;
-  font-size: 0.68rem;
+  font-size: 0.78rem;
   font-weight: 400;
   letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.88);
 }
 
+.tv-series__platform-logo,
 .tv-series__platform img {
-  width: 16px;
-  height: 16px;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
   object-fit: contain;
   display: block;
-  filter: brightness(1.05);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
 }
 
 .tv-series__blurb {
@@ -1935,6 +1937,131 @@ body.page-home .section__eyebrow {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.88);
+}
+
+/* Vantage — Coming Soon (blur + glass) */
+.tv-series__card--soon {
+  cursor: default;
+}
+
+.tv-series__card--soon .tv-series__image {
+  filter: blur(10px) saturate(1.05) brightness(0.78);
+  transform: scale(1.12);
+}
+
+.tv-series__card--soon:hover .tv-series__image {
+  transform: scale(1.16);
+  filter: blur(8px) saturate(1.1) brightness(0.82);
+}
+
+.tv-series__card--soon .tv-series__shade {
+  background:
+    linear-gradient(135deg, rgba(8, 10, 16, 0.55) 0%, rgba(8, 10, 16, 0.2) 45%, rgba(8, 10, 16, 0.65) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, transparent 40%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+.tv-series__frost {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.04) 38%, rgba(255, 255, 255, 0.02) 100%);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.tv-series__card--soon .tv-series__body {
+  z-index: 2;
+  justify-content: space-between;
+}
+
+.tv-series__card--soon .tv-series__top {
+  opacity: 0.92;
+}
+
+.tv-series__card--soon .tv-series__name,
+.tv-series__card--soon .tv-series__tagline,
+.tv-series__card--soon .tv-series__platform {
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+}
+
+.tv-series__soon {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+.tv-series__soon-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.08) 100%);
+  backdrop-filter: blur(18px) saturate(1.35);
+  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  box-shadow:
+    0 8px 28px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  font-family: "Outfit", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fff;
+  overflow: hidden;
+}
+
+.tv-series__soon-pill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.35) 45%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  animation: tvSoonShine 3.6s ease-in-out infinite;
+}
+
+@keyframes tvSoonShine {
+  0%,
+  55% {
+    transform: translateX(-120%);
+  }
+  80%,
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+.tv-series__card--soon:hover {
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.tv-series__card--soon:hover .tv-series__soon-pill {
+  border-color: rgba(255, 255, 255, 0.42);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.1) 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tv-series__soon-pill::before {
+    animation: none;
+  }
+
+  .tv-series__card--soon .tv-series__image,
+  .tv-series__card--soon:hover .tv-series__image {
+    filter: blur(10px) saturate(1.05) brightness(0.78);
+    transform: scale(1.12);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2751,6 +2878,17 @@ body.page-home .footer__social-link svg {
 
   .tv-series__name {
     font-size: 1.45rem;
+  }
+
+  .tv-series__platform {
+    font-size: 0.74rem;
+    gap: 9px;
+  }
+
+  .tv-series__platform-logo,
+  .tv-series__platform img {
+    width: 28px;
+    height: 28px;
   }
 
   .tv-series__body {
