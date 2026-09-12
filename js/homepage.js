@@ -659,29 +659,55 @@
     var section = document.querySelector(".feature-lab");
     if (!section) return;
 
-    var copy = section.querySelector(".feature-lab__copy");
-    var visual = section.querySelector(".feature-lab__visual");
-    var cards = section.querySelectorAll(".feature-lab__card");
+    var title = section.querySelector(".feature-lab__title");
+    var description = section.querySelector(".feature-lab__description");
+    var imageWrap = section.querySelector(".feature-lab__image-wrapper");
 
     if (prefersReduced) {
-      [copy, visual].forEach(function (el) {
+      [title, description, imageWrap].forEach(function (el) {
         if (el) {
           el.style.opacity = "1";
           el.style.transform = "none";
         }
       });
-      cards.forEach(function (card) {
-        card.style.opacity = "1";
-        card.style.transform = "none";
-      });
       return;
     }
 
-    if (copy) {
-      gsap.to(copy, {
+    if (title) {
+      gsap.to(title, {
         opacity: 1,
         y: 0,
-        duration: 0.95,
+        duration: 0.9,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 75%",
+          once: true,
+        },
+      });
+    }
+
+    if (description) {
+      gsap.to(description, {
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        delay: 0.12,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 75%",
+          once: true,
+        },
+      });
+    }
+
+    if (imageWrap) {
+      gsap.to(imageWrap, {
+        opacity: 1,
+        scale: 1,
+        duration: 1.15,
+        delay: 0.18,
         ease: "power3.out",
         scrollTrigger: {
           trigger: section,
@@ -689,36 +715,21 @@
           once: true,
         },
       });
-    }
 
-    if (visual) {
-      gsap.to(visual, {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 1.05,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: section,
-          start: "top 70%",
-          once: true,
-        },
-      });
-    }
-
-    if (cards.length) {
-      gsap.to(cards, {
-        opacity: 1,
-        y: 0,
-        duration: 0.75,
-        stagger: 0.1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: section.querySelector(".feature-lab__cards") || section,
-          start: "top 85%",
-          once: true,
-        },
-      });
+      gsap.fromTo(
+        imageWrap.querySelector(".feature-lab__image"),
+        { scale: 1.04 },
+        {
+          scale: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: imageWrap,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        }
+      );
     }
   }
 
