@@ -2850,20 +2850,26 @@ body.page-home .footer__social-link svg {
   }
 
   .tv-series {
-    padding: 64px 0 72px;
+    padding: 56px 0 64px;
   }
 
   .tv-series__inner {
-    width: calc(100% - 28px);
+    width: calc(100% - 24px);
   }
 
   .tv-series__header {
-    margin-bottom: 22px;
-    gap: 18px;
+    margin-bottom: 18px;
+    gap: 12px;
+  }
+
+  .tv-series__eyebrow {
+    margin-bottom: 10px;
+    font-size: 0.62rem;
   }
 
   .tv-series__title {
-    font-size: clamp(1.7rem, 8vw, 2.4rem);
+    font-size: clamp(1.55rem, 7.5vw, 2.15rem);
+    line-height: 1.05;
   }
 
   .tv-series__aside {
@@ -2871,28 +2877,73 @@ body.page-home .footer__social-link svg {
     text-align: left;
   }
 
+  .tv-series__track {
+    gap: 10px;
+    margin: 0 -4px;
+    padding: 0 4px 6px;
+  }
+
   .tv-series__card {
-    flex: 0 0 min(86%, 360px);
-    min-height: 240px;
+    flex: 0 0 min(82%, 320px);
+    aspect-ratio: 4 / 3;
+    min-height: 220px;
   }
 
   .tv-series__name {
-    font-size: 1.45rem;
+    font-size: 1.35rem;
+    margin-bottom: 6px;
+  }
+
+  .tv-series__tagline {
+    margin-bottom: 10px;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
   }
 
   .tv-series__platform {
-    font-size: 0.74rem;
-    gap: 9px;
+    font-size: 0.7rem;
+    gap: 8px;
   }
 
   .tv-series__platform-logo,
   .tv-series__platform img {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
   }
 
   .tv-series__body {
-    padding: 16px;
+    padding: 14px;
+  }
+
+  /* Coming soon — lighter blur on mobile */
+  .tv-series__card--soon .tv-series__image,
+  .tv-series__card--soon:hover .tv-series__image {
+    filter: blur(6px) brightness(0.8);
+    transform: scale(1.08);
+  }
+
+  .tv-series__frost {
+    backdrop-filter: blur(8px) saturate(1.1);
+    -webkit-backdrop-filter: blur(8px) saturate(1.1);
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.03) 100%
+    );
+  }
+
+  .tv-series__soon {
+    padding-top: 12px;
+  }
+
+  .tv-series__soon-pill {
+    padding: 9px 14px;
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+  }
+
+  .tv-series__soon-pill::before {
+    animation: none;
   }
 
   .promise-v2 {
@@ -3026,6 +3077,20 @@ body.page-home .footer__social-link svg {
   .promise-v2__inner {
     padding-left: 14px;
     padding-right: 14px;
+  }
+
+  .tv-series__card {
+    flex: 0 0 min(88%, 300px);
+    min-height: 200px;
+  }
+
+  .tv-series__name {
+    font-size: 1.25rem;
+  }
+
+  .tv-series__soon-pill {
+    padding: 8px 12px;
+    font-size: 0.58rem;
   }
 }
 
