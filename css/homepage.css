@@ -2629,21 +2629,16 @@ body.page-home .footer__social-link svg {
 
   .tv-series__track {
     display: flex;
+    flex-direction: column;
     gap: 12px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    padding-bottom: 4px;
-  }
-
-  .tv-series__track::-webkit-scrollbar {
-    display: none;
+    overflow: visible;
+    scroll-snap-type: none;
+    padding-bottom: 0;
   }
 
   .tv-series__card {
-    flex: 0 0 min(78%, 420px);
-    scroll-snap-align: start;
+    flex: none;
+    width: 100%;
     aspect-ratio: 16 / 11;
     min-height: 260px;
   }
@@ -2899,12 +2894,13 @@ body.page-home .footer__social-link svg {
 
   .tv-series__track {
     gap: 10px;
-    margin: 0 -4px;
-    padding: 0 4px 6px;
+    margin: 0;
+    padding: 0;
   }
 
   .tv-series__card {
-    flex: 0 0 min(82%, 320px);
+    flex: none;
+    width: 100%;
     aspect-ratio: 4 / 3;
     min-height: 220px;
   }
@@ -3100,7 +3096,8 @@ body.page-home .footer__social-link svg {
   }
 
   .tv-series__card {
-    flex: 0 0 min(88%, 300px);
+    flex: none;
+    width: 100%;
     min-height: 200px;
   }
 
