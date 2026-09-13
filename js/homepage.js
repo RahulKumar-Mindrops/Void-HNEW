@@ -520,10 +520,7 @@
           onEnter: function () {
             railItems.forEach(function (item, index) {
               window.setTimeout(function () {
-                item.classList.add("is-lit");
-                if (index === railItems.length - 1) {
-                  item.classList.add("is-glow");
-                }
+                item.classList.add("is-lit", "is-glow");
               }, index * 220);
             });
           },
