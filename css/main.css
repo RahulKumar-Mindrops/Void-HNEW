@@ -466,7 +466,7 @@ button {
 .nav__link {
   position: relative;
   padding: 8px clamp(8px, 0.9vw, 14px);
-  font-size: 0.875rem;
+  font-size: 1.05rem;
   font-weight: 500;
   color: rgba(0, 0, 0, 0.78);
   transition: color 0.3s ease;

@@ -93,8 +93,8 @@ body.page-home .nav.nav--hero .nav__logo {
 }
 
 body.page-home .nav.nav--hero .nav__logo-img {
-  height: clamp(38px, 4.6vw, 48px);
-  max-width: min(200px, 46vw);
+  height: clamp(28px, 3.4vw, 36px);
+  max-width: min(140px, 36vw);
   filter: none;
   opacity: 0.96;
 }
@@ -118,7 +118,7 @@ body.page-home .nav.nav--hero .nav__links {
 body.page-home .nav.nav--hero .nav__link {
   padding: 6px 4px;
   font-family: "Outfit", sans-serif;
-  font-size: clamp(0.62rem, 0.78vw, 0.78rem);
+  font-size: clamp(0.85rem, 1.05vw, 1.05rem);
   font-weight: 400;
   letter-spacing: 0.04em;
   color: rgba(255, 255, 255, 0.82) !important;

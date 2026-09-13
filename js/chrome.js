@@ -57,7 +57,7 @@
     const homeClass = active === "home" ? " nav--hero" : "";
     const logo =
       '<a href="index.html" class="nav__logo" aria-label="VOIR home">' +
-      '<img src="images/whitelogo.png?v=1" alt="VOIR" class="nav__logo-img" width="180" height="65" />' +
+      '<img src="images/whitelogo.png?v=1" alt="VOIR" class="nav__logo-img" width="120" height="44" />' +
       "</a>";
     const search =
       active === "home"
