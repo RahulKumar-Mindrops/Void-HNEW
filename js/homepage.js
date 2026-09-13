@@ -86,12 +86,15 @@
       if (nav) nav.style.opacity = "1";
     }
 
-    /* Cinematic 4-Slide Automatic Slider Engine */
+    /* Cinematic video slide engine (v1–v4) */
     if (!slides.length) return;
 
+    var videos = slides.map(function (slide) {
+      return slide.querySelector("video");
+    });
     var totalSlides = slides.length;
     var currentIndex = 0;
-    var DURATION = 5000; // 5 seconds per slide
+    var FALLBACK_DURATION = 8000;
     var elapsedInSlide = 0;
     var isPlaying = true;
     var lastTimestamp = null;
@@ -105,12 +108,45 @@
       return String(num + 1).padStart(2, "0");
     }
 
+    function getSlideDuration(index) {
+      var video = videos[index];
+      if (video && isFinite(video.duration) && video.duration > 0) {
+        return video.duration * 1000;
+      }
+      return FALLBACK_DURATION;
+    }
+
+    function tryPlayVideo(video) {
+      if (!video) return;
+      video.muted = true;
+      video.defaultMuted = true;
+      video.setAttribute("playsinline", "");
+      video.setAttribute("muted", "");
+      var playPromise = video.play();
+      if (playPromise && typeof playPromise.then === "function") {
+        playPromise.catch(function () {});
+      }
+    }
+
     function setActiveSlide(index) {
       slides.forEach(function (slide, idx) {
+        var video = videos[idx];
         if (idx === index) {
           slide.classList.add("is-active");
+          if (video) {
+            try {
+              video.currentTime = 0;
+            } catch (e) {}
+            if (isPlaying) tryPlayVideo(video);
+          }
         } else {
           slide.classList.remove("is-active");
+          if (video) {
+            video.pause();
+            try {
+              video.currentTime = 0;
+            } catch (e) {}
+          }
         }
       });
       if (currentEl) {
@@ -124,24 +160,52 @@
       if (knob) knob.style.left = clamped + "%";
     }
 
+    function goToNextSlide() {
+      elapsedInSlide = 0;
+      currentIndex = (currentIndex + 1) % totalSlides;
+      setActiveSlide(currentIndex);
+      updateProgressUI(0);
+    }
+
     function tick(timestamp) {
       if (!lastTimestamp) lastTimestamp = timestamp;
       var delta = timestamp - lastTimestamp;
       lastTimestamp = timestamp;
 
       if (isPlaying) {
-        elapsedInSlide += delta;
-        if (elapsedInSlide >= DURATION) {
-          elapsedInSlide = elapsedInSlide % DURATION;
-          currentIndex = (currentIndex + 1) % totalSlides;
-          setActiveSlide(currentIndex);
+        var duration = getSlideDuration(currentIndex);
+        var activeVideo = videos[currentIndex];
+
+        if (activeVideo && isFinite(activeVideo.currentTime) && activeVideo.duration > 0) {
+          elapsedInSlide = activeVideo.currentTime * 1000;
+          if (activeVideo.ended || activeVideo.currentTime >= activeVideo.duration - 0.05) {
+            goToNextSlide();
+          } else {
+            updateProgressUI((elapsedInSlide / duration) * 100);
+          }
+        } else {
+          elapsedInSlide += delta;
+          if (elapsedInSlide >= duration) {
+            goToNextSlide();
+          } else {
+            updateProgressUI((elapsedInSlide / duration) * 100);
+          }
         }
-        var pct = (elapsedInSlide / DURATION) * 100;
-        updateProgressUI(pct);
       }
 
       rafId = requestAnimationFrame(tick);
     }
+
+    videos.forEach(function (video) {
+      if (!video) return;
+      video.muted = true;
+      video.defaultMuted = true;
+      video.removeAttribute("controls");
+      video.addEventListener("ended", function () {
+        if (!isPlaying) return;
+        if (videos[currentIndex] === video) goToNextSlide();
+      });
+    });
 
     // Start tick loop
     setActiveSlide(currentIndex);
@@ -153,9 +217,11 @@
       playBtn.addEventListener("click", function () {
         isPlaying = !isPlaying;
         lastTimestamp = performance.now();
+        var activeVideo = videos[currentIndex];
 
         if (isPlaying) {
           section.classList.remove("is-paused");
+          tryPlayVideo(activeVideo);
           playBtn.setAttribute("aria-label", "Pause background slideshow");
           playBtn.innerHTML =
             '<svg class="voir-hero__play-icon" viewBox="0 0 12 12" width="10" height="10" fill="currentColor" aria-hidden="true">' +
@@ -164,6 +230,7 @@
             '</svg>';
         } else {
           section.classList.add("is-paused");
+          if (activeVideo) activeVideo.pause();
           playBtn.setAttribute("aria-label", "Play background slideshow");
           playBtn.innerHTML =
             '<svg class="voir-hero__play-icon" viewBox="0 0 12 12" width="10" height="10" fill="currentColor" aria-hidden="true">' +
@@ -441,6 +508,27 @@
           },
         }
       );
+
+      var railItems = Array.prototype.slice.call(
+        section.querySelectorAll(".story__rail li")
+      );
+      if (railItems.length) {
+        ScrollTrigger.create({
+          trigger: visual,
+          start: "top 85%",
+          once: true,
+          onEnter: function () {
+            railItems.forEach(function (item, index) {
+              window.setTimeout(function () {
+                item.classList.add("is-lit");
+                if (index === railItems.length - 1) {
+                  item.classList.add("is-glow");
+                }
+              }, index * 220);
+            });
+          },
+        });
+      }
     }
   }
 
@@ -456,8 +544,45 @@
     var aside = section.querySelector(".tech-showcase__aside");
     var track = section.querySelector(".tech-showcase__track");
     var cards = Array.prototype.slice.call(section.querySelectorAll(".tech-showcase__card"));
+    var videos = Array.prototype.slice.call(section.querySelectorAll(".tech-showcase__video"));
     var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
     var canTilt = finePointer && !prefersReduced;
+
+    function tryPlayVideo(video) {
+      if (!video) return;
+      video.muted = true;
+      video.defaultMuted = true;
+      video.setAttribute("playsinline", "");
+      video.setAttribute("muted", "");
+      var playPromise = video.play();
+      if (playPromise && typeof playPromise.then === "function") {
+        playPromise.catch(function () {});
+      }
+    }
+
+    videos.forEach(function (video) {
+      tryPlayVideo(video);
+    });
+
+    if ("IntersectionObserver" in window && videos.length) {
+      var videoVis = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            var video = entry.target.querySelector
+              ? entry.target.querySelector(".tech-showcase__video")
+              : null;
+            if (!video) return;
+            if (entry.isIntersecting) tryPlayVideo(video);
+            else video.pause();
+          });
+        },
+        { threshold: 0.25 }
+      );
+
+      cards.forEach(function (card) {
+        videoVis.observe(card);
+      });
+    }
 
     function resetCardVars(card) {
       card.style.setProperty("--tilt-x", "0deg");

@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="css/main.css?v=46" />
   <link rel="stylesheet" href="css/animations.css?v=10" />
   <link rel="stylesheet" href="css/pages.css?v=52" />
-  <link rel="stylesheet" href="css/homepage.css?v=58" />
+  <link rel="stylesheet" href="css/homepage.css?v=60" />
 </head>
 <body class="page-home">
   <div class="cursor" id="cursor" aria-hidden="true">
@@ -35,50 +35,54 @@
   <main id="main">
 
     <!-- ============================================
-         HERO — Cinematic living-room (reference match)
+         HERO — Cinematic video slides (v1–v4)
          ============================================ -->
     <section class="voir-hero" id="purpose" aria-label="VOIR See it. Love it. Live it.">
       <div class="voir-hero__media" aria-hidden="true">
         <div class="voir-hero__slides">
           <div class="voir-hero__slide is-active">
-            <img
-              src="images/hero-living-room-01.jpg"
-              alt=""
-              width="3840"
-              height="2160"
-              decoding="async"
-              fetchpriority="high"
-            />
+            <video
+              class="voir-hero__video"
+              muted
+              playsinline
+              preload="auto"
+              aria-hidden="true"
+            >
+              <source src="v1.mp4" type="video/mp4" />
+            </video>
           </div>
           <div class="voir-hero__slide">
-            <img
-              src="images/hero-living-room-02.jpg"
-              alt=""
-              width="3840"
-              height="2160"
-              decoding="async"
-              loading="lazy"
-            />
+            <video
+              class="voir-hero__video"
+              muted
+              playsinline
+              preload="metadata"
+              aria-hidden="true"
+            >
+              <source src="v2.mp4" type="video/mp4" />
+            </video>
           </div>
           <div class="voir-hero__slide">
-            <img
-              src="images/hero-living-room-03.jpg"
-              alt=""
-              width="3840"
-              height="2160"
-              decoding="async"
-              loading="lazy"
-            />
+            <video
+              class="voir-hero__video"
+              muted
+              playsinline
+              preload="metadata"
+              aria-hidden="true"
+            >
+              <source src="v3.mp4" type="video/mp4" />
+            </video>
           </div>
           <div class="voir-hero__slide">
-            <img
-              src="images/hero-living-room-04.jpg"
-              alt=""
-              width="3840"
-              height="2160"
-              decoding="async"
-              loading="lazy"
-            />
+            <video
+              class="voir-hero__video"
+              muted
+              playsinline
+              preload="metadata"
+              aria-hidden="true"
+            >
+              <source src="v4.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
         <div class="voir-hero__wash"></div>
@@ -230,7 +234,7 @@
                 poster="images/tv-hero.jpg"
                 aria-label="VOIR cinematic television experience"
               >
-                <source src="vidio%20hero.mp4" type="video/mp4" />
+                <source src="dog-view.mp4" type="video/mp4" />
               </video>
               <div class="story__visual-fade" aria-hidden="true"></div>
             </div>
@@ -346,7 +350,17 @@
           <article class="tech-showcase__card" role="listitem" tabindex="0" data-depth="2">
             <div class="tech-showcase__card-inner">
               <div class="tech-showcase__media">
-                <img class="tech-showcase__img" src="images/exp-cinema.jpg" alt="Astronaut cinematic scene on a VOIR television" loading="lazy" decoding="async" />
+                <video
+                  class="tech-showcase__video"
+                  muted
+                  loop
+                  playsinline
+                  autoplay
+                  preload="metadata"
+                  aria-label="Cinema experience on a VOIR television"
+                >
+                  <source src="v1.mp4" type="video/mp4" />
+                </video>
               </div>
               <div class="tech-showcase__glass" aria-hidden="true"></div>
               <div class="tech-showcase__shade" aria-hidden="true"></div>
@@ -362,7 +376,17 @@
           <article class="tech-showcase__card" role="listitem" tabindex="0" data-depth="1">
             <div class="tech-showcase__card-inner">
               <div class="tech-showcase__media">
-                <img class="tech-showcase__img" src="images/exp-sports.jpg" alt="Stadium cricket action for sports viewing" loading="lazy" decoding="async" />
+                <video
+                  class="tech-showcase__video"
+                  muted
+                  loop
+                  playsinline
+                  autoplay
+                  preload="metadata"
+                  aria-label="Sports viewing experience"
+                >
+                  <source src="v2.mp4" type="video/mp4" />
+                </video>
               </div>
               <div class="tech-showcase__glass" aria-hidden="true"></div>
               <div class="tech-showcase__shade" aria-hidden="true"></div>
@@ -378,7 +402,17 @@
           <article class="tech-showcase__card" role="listitem" tabindex="0" data-depth="3">
             <div class="tech-showcase__card-inner">
               <div class="tech-showcase__media">
-                <img class="tech-showcase__img" src="images/exp-gaming.jpg" alt="Neon racing scene for immersive gaming" loading="lazy" decoding="async" />
+                <video
+                  class="tech-showcase__video"
+                  muted
+                  loop
+                  playsinline
+                  autoplay
+                  preload="metadata"
+                  aria-label="Immersive gaming experience"
+                >
+                  <source src="v3.mp4" type="video/mp4" />
+                </video>
               </div>
               <div class="tech-showcase__glass" aria-hidden="true"></div>
               <div class="tech-showcase__shade" aria-hidden="true"></div>
@@ -394,7 +428,17 @@
           <article class="tech-showcase__card" role="listitem" tabindex="0" data-depth="0">
             <div class="tech-showcase__card-inner">
               <div class="tech-showcase__media">
-                <img class="tech-showcase__img" src="images/exp-music.jpg" alt="Musician performing acoustic guitar" loading="lazy" decoding="async" />
+                <video
+                  class="tech-showcase__video"
+                  muted
+                  loop
+                  playsinline
+                  autoplay
+                  preload="metadata"
+                  aria-label="Music listening experience"
+                >
+                  <source src="v4.mp4" type="video/mp4" />
+                </video>
               </div>
               <div class="tech-showcase__glass" aria-hidden="true"></div>
               <div class="tech-showcase__shade" aria-hidden="true"></div>
@@ -410,7 +454,17 @@
           <article class="tech-showcase__card" role="listitem" tabindex="0" data-depth="2">
             <div class="tech-showcase__card-inner">
               <div class="tech-showcase__media">
-                <img class="tech-showcase__img" src="images/exp-family.jpg" alt="Family watching television together" loading="lazy" decoding="async" />
+                <video
+                  class="tech-showcase__video"
+                  muted
+                  loop
+                  playsinline
+                  autoplay
+                  preload="metadata"
+                  aria-label="Family watching together"
+                >
+                  <source src="v5.mp4" type="video/mp4" />
+                </video>
               </div>
               <div class="tech-showcase__glass" aria-hidden="true"></div>
               <div class="tech-showcase__shade" aria-hidden="true"></div>
@@ -585,6 +639,6 @@
   <script src="js/chrome.js?v=19"></script>
   <script src="js/cursor.js?v=3"></script>
   <script src="js/app.js?v=41"></script>
-  <script src="js/homepage.js?v=37"></script>
+  <script src="js/homepage.js?v=39"></script>
 </body>
 </html>

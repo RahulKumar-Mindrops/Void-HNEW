@@ -364,7 +364,9 @@ body.page-home .section__eyebrow {
   z-index: 1;
 }
 
-.voir-hero__slide img {
+.voir-hero__slide img,
+.voir-hero__slide video,
+.voir-hero__video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -375,11 +377,15 @@ body.page-home .section__eyebrow {
   will-change: transform;
 }
 
-.voir-hero__slide.is-active img {
+.voir-hero__slide.is-active img,
+.voir-hero__slide.is-active video,
+.voir-hero__slide.is-active .voir-hero__video {
   transform: scale(1.08);
 }
 
-.voir-hero.is-paused .voir-hero__slide img {
+.voir-hero.is-paused .voir-hero__slide img,
+.voir-hero.is-paused .voir-hero__slide video,
+.voir-hero.is-paused .voir-hero__video {
   transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), visibility 1.2s !important;
 }
 
@@ -388,7 +394,11 @@ body.page-home .section__eyebrow {
     transition: opacity 0.6s ease, visibility 0.6s !important;
   }
   .voir-hero__slide img,
-  .voir-hero__slide.is-active img {
+  .voir-hero__slide video,
+  .voir-hero__video,
+  .voir-hero__slide.is-active img,
+  .voir-hero__slide.is-active video,
+  .voir-hero__slide.is-active .voir-hero__video {
     transform: none !important;
     transition: none !important;
   }
@@ -1121,19 +1131,86 @@ body.page-home .section__eyebrow {
 
 .story__rail li {
   font-family: "Outfit", sans-serif;
-  font-size: 0.52rem;
+  font-size: 0.58rem;
   font-weight: 400;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.42);
+  color: rgba(255, 255, 255, 0.28);
   line-height: 1.35;
   padding: 10px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-shadow: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    color 0.55s ease,
+    text-shadow 0.55s ease,
+    opacity 0.55s ease,
+    transform 0.55s ease;
+}
+
+.story__rail li.is-lit {
+  opacity: 1;
+  transform: translateY(0);
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow:
+    0 0 6px rgba(255, 255, 255, 0.55),
+    0 0 16px rgba(255, 255, 255, 0.35);
+}
+
+.story__rail li.is-glow {
+  opacity: 1;
+  transform: translateY(0);
+  color: #fff;
+  border-bottom-color: transparent;
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.95),
+    0 0 18px rgba(255, 255, 255, 0.7),
+    0 0 36px rgba(255, 255, 255, 0.45),
+    0 0 56px rgba(255, 255, 255, 0.25);
+  animation: story-rail-glow 2.4s ease-in-out infinite;
 }
 
 .story__rail li:last-child {
   border-bottom: none;
-  color: rgba(255, 255, 255, 0.62);
+}
+
+@keyframes story-rail-glow {
+  0%,
+  100% {
+    text-shadow:
+      0 0 8px rgba(255, 255, 255, 0.95),
+      0 0 18px rgba(255, 255, 255, 0.7),
+      0 0 36px rgba(255, 255, 255, 0.45),
+      0 0 56px rgba(255, 255, 255, 0.25);
+  }
+  50% {
+    text-shadow:
+      0 0 12px rgba(255, 255, 255, 1),
+      0 0 28px rgba(255, 255, 255, 0.85),
+      0 0 48px rgba(255, 255, 255, 0.55),
+      0 0 72px rgba(255, 255, 255, 0.3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story__rail li {
+    opacity: 1;
+    transform: none;
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow:
+      0 0 6px rgba(255, 255, 255, 0.55),
+      0 0 16px rgba(255, 255, 255, 0.35);
+    animation: none;
+  }
+
+  .story__rail li:last-child {
+    color: #fff;
+    text-shadow:
+      0 0 8px rgba(255, 255, 255, 0.95),
+      0 0 18px rgba(255, 255, 255, 0.7),
+      0 0 36px rgba(255, 255, 255, 0.45);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1410,7 +1487,8 @@ body.page-home .section__eyebrow {
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.tech-showcase__img {
+.tech-showcase__img,
+.tech-showcase__video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1419,10 +1497,18 @@ body.page-home .section__eyebrow {
   transform: scale(1.08);
   transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1), filter 0.55s ease;
   filter: brightness(0.9) contrast(1.05);
+  pointer-events: none;
+}
+
+.tech-showcase__video {
+  position: absolute;
+  inset: 0;
 }
 
 .tech-showcase__card.is-active .tech-showcase__img,
-.tech-showcase__card:focus-visible .tech-showcase__img {
+.tech-showcase__card.is-active .tech-showcase__video,
+.tech-showcase__card:focus-visible .tech-showcase__img,
+.tech-showcase__card:focus-visible .tech-showcase__video {
   transform: scale(1.16);
   filter: brightness(1.05) contrast(1.08);
 }
@@ -1574,6 +1660,7 @@ body.page-home .section__eyebrow {
   .tech-showcase__card,
   .tech-showcase__card-inner,
   .tech-showcase__img,
+  .tech-showcase__video,
   .tech-showcase__label,
   .tech-showcase__shine,
   .tech-showcase__glow,
@@ -2789,10 +2876,11 @@ body.page-home .footer__social-link svg {
     padding: 8px 12px 8px 0;
     border-bottom: none;
     border-right: 1px solid rgba(255, 255, 255, 0.08);
-    font-size: 0.5rem;
+    font-size: 0.55rem;
   }
 
-  .story__rail li:last-child {
+  .story__rail li:last-child,
+  .story__rail li.is-glow {
     border-right: none;
   }
 
