@@ -3526,8 +3526,13 @@ button {
   .nav-drawer.is-open {
     opacity: 1;
     visibility: visible;
-    pointer-events: auto;
+    pointer-events: none;
     transform: translateY(0);
+  }
+
+  .nav-drawer.is-open .nav-drawer__list,
+  .nav-drawer.is-open .nav-drawer__link {
+    pointer-events: auto;
   }
 
   .nav-drawer[hidden] {
@@ -3571,7 +3576,15 @@ button {
   }
 
   .nav.is-menu-open .nav__toggle {
+    position: relative;
     z-index: 10061;
+    pointer-events: auto;
+  }
+
+  .nav.is-menu-open .nav__actions {
+    position: relative;
+    z-index: 10061;
+    pointer-events: auto;
   }
 
   .nav.is-menu-open .nav__toggle span {
@@ -3580,6 +3593,10 @@ button {
 
   body.nav-drawer-open {
     overflow: hidden;
+  }
+
+  body.nav-drawer-open #main {
+    pointer-events: none;
   }
 }
 

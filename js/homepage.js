@@ -541,45 +541,8 @@
     var aside = section.querySelector(".tech-showcase__aside");
     var track = section.querySelector(".tech-showcase__track");
     var cards = Array.prototype.slice.call(section.querySelectorAll(".tech-showcase__card"));
-    var videos = Array.prototype.slice.call(section.querySelectorAll(".tech-showcase__video"));
     var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
     var canTilt = finePointer && !prefersReduced;
-
-    function tryPlayVideo(video) {
-      if (!video) return;
-      video.muted = true;
-      video.defaultMuted = true;
-      video.setAttribute("playsinline", "");
-      video.setAttribute("muted", "");
-      var playPromise = video.play();
-      if (playPromise && typeof playPromise.then === "function") {
-        playPromise.catch(function () {});
-      }
-    }
-
-    videos.forEach(function (video) {
-      tryPlayVideo(video);
-    });
-
-    if ("IntersectionObserver" in window && videos.length) {
-      var videoVis = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (entry) {
-            var video = entry.target.querySelector
-              ? entry.target.querySelector(".tech-showcase__video")
-              : null;
-            if (!video) return;
-            if (entry.isIntersecting) tryPlayVideo(video);
-            else video.pause();
-          });
-        },
-        { threshold: 0.25 }
-      );
-
-      cards.forEach(function (card) {
-        videoVis.observe(card);
-      });
-    }
 
     function resetCardVars(card) {
       card.style.setProperty("--tilt-x", "0deg");

@@ -76,6 +76,16 @@ body.page-home .nav.nav--hero.is-scrolled {
 body.page-home .nav.nav--hero.is-menu-open {
   background: rgba(0, 0, 0, 0.94);
   border-bottom: 0;
+  z-index: 10080;
+}
+
+body.page-home .nav.nav--hero.is-menu-open .nav__inner,
+body.page-home .nav.nav--hero.is-menu-open .nav__actions,
+body.page-home .nav.nav--hero.is-menu-open .nav__search,
+body.page-home .nav.nav--hero.is-menu-open .nav__toggle {
+  position: relative;
+  z-index: 10081;
+  pointer-events: auto;
 }
 
 body.page-home .nav.nav--hero .nav__inner {
@@ -211,8 +221,17 @@ body.page-home .nav-drawer {
 body.page-home .nav-drawer.is-open {
   opacity: 1;
   visibility: visible;
-  pointer-events: auto;
+  pointer-events: none;
   transform: translateY(0);
+}
+
+body.page-home .nav-drawer.is-open .nav-drawer__list,
+body.page-home .nav-drawer.is-open .nav-drawer__link {
+  pointer-events: auto;
+}
+
+body.page-home.nav-drawer-open #main {
+  pointer-events: none;
 }
 
 body.page-home .nav-drawer[hidden] {
